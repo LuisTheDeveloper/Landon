@@ -1,7 +1,16 @@
-import React from 'react'
-import menuLinksData from "../data/menu_links.json"
+import React from 'react';
+import { useGetMenuLinksQuery } from "../services/landonApi";
 
 const Header = () => {
+  const { data, isFetching } = useGetMenuLinksQuery();
+  console.log(data)
+  
+  //const menuLinksData = data;
+
+  //if (isFetching) return "Loading...";
+
+
+
   return (
     <header id="intro">
     <article className="fullheight">
@@ -16,11 +25,11 @@ const Header = () => {
       <div className="navbar">
         <div className="brand"><a href="#welcome">Landon <span>Hotel</span></a></div>
         <ul>
-            {
+            {/* {
                 menuLinksData.map((link) => {
                     return (<li><a className={`icon ${link.class}`} href={`${link.href}`}><span>{link.text}</span></a></li>)
                 })
-            }
+            } */}
         </ul>
       </div>
     </nav>
