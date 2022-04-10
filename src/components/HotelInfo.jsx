@@ -1,9 +1,16 @@
 import React from 'react'
-import accessibilityData from "../data/accessibilities.json"
-import servicesData from "../data/services.json"
+import { useGetAccessibilitiesQuery, useGetServicesQuery } from '../services/landonApi'
 
 const HotelInfo = () => {
-  return (
+    const isFetchingServices = useGetServicesQuery().isFetching
+    const isFetchingAccess = useGetAccessibilitiesQuery().isFetching
+
+    const servicesData = useGetServicesQuery().data
+    const accessibilityData = useGetAccessibilitiesQuery().data
+
+    if(isFetchingAccess || isFetchingServices) return "Loading data...";
+
+    return (
     <div className="scene" id="hotelinfo">
         <article className="heading">
         <h1>Essential Info</h1>
@@ -26,7 +33,7 @@ const HotelInfo = () => {
                 <ul>
                     {
                         servicesData.map((service) => 
-                            <li>{service.name}</li>
+                            <li key={service.name}>{service.name}</li>
                         )
                     }
                 </ul>
@@ -37,7 +44,7 @@ const HotelInfo = () => {
                 <ul>
                     {
                         accessibilityData.map((item) => 
-                            <li>{item.name}</li>
+                            <li key={item.name}>{item.name}</li>
                         )
                     }
                 </ul>

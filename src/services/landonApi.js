@@ -2,6 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseUrl = "https://4vf8yax4dk.execute-api.us-east-1.amazonaws.com/Production"
 
+const createRequest = (url) => ({ url });
+
 export const landonApi = createApi({
     reducerPath: 'landonApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
@@ -11,13 +13,13 @@ export const landonApi = createApi({
             query: () => "/menu-links"
         }),
         getAccessibilities: builder.query({
-            query: () => "/accessibilities"
+            query: () => createRequest("/accessibilities")
         }),
         getGallery: builder.query({
-            query: () => "/gallery"
+            query: () => createRequest("/gallery")
         }),
         getServices: builder.query({
-            query: () => "/services"
+            query: () => createRequest("/services")
         })        
     })
 })
