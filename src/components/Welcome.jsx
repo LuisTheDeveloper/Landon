@@ -5,7 +5,7 @@ const Welcome = () => {
     const { data, isFetching } = useGetGalleryQuery()
 
     if (isFetching) return "Loading images..."
-    console.log(data)
+
     const galleryImagesData = data;
 
     return (
