@@ -2,6 +2,10 @@
 
 <h3>Technologies used: </h3>
 
+<b> AWS Amplify </b>
+<br>
+![image](https://user-images.githubusercontent.com/47012647/162639716-a28c187a-366a-427d-a457-29a167b135f4.png)
+
 <b> Amazon DynamoDB database </b>
 <br>
 ![image](https://user-images.githubusercontent.com/47012647/162639305-5b51156f-8286-4c4c-845d-e037ba94b24e.png)
